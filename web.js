@@ -251,6 +251,33 @@ function sendMail1() {
     );
 }
 
+// for checking empty values
+function validateAndSend() {
+    // Get the form values
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const persons = document.getElementById("persons").value.trim();
+    const date = document.getElementById("date").value.trim();
+    const time = document.getElementById("time").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // Check if any field is empty
+    if (!name || !phone || !persons || !date || !time || !message) {
+        alert("Please fill out all the fields before booking.");
+        return; // Stop the function execution
+    }
+
+    // If validation passes, call the sendMail function
+    sendMail();
+}
+
+function validateandsubscribe(){
+    const subscribe = document.getElementById("subscribed").value.trim();
+    if(!subscribe){
+        alert("Please enter your email address.");
+        return;
+    }
+}
 
 
 
@@ -278,17 +305,3 @@ function sendMail1() {
 
 
 
-
-//  function sendMail1(){
-//     var params = {
-//         Email:document.getElementById("subscribe")
-//  }
-
-// emailjs.send("service_l1ztej9","template_nikrt37",params)
-// .then(
-//     function(res) {
-//         alert("Form submitted successfully!"+res.status)}
-// )
-// .catch(err => console.log(err));
-
-// }
